@@ -357,4 +357,30 @@ public final class Spark {
      * TODO: Add URI-param fetching from webcontext ie. ?param=value&param2=...etc, AND headers, DONE
      * TODO: sessions? (use session servlet context?) DONE
      */
+	private static boolean stateless = false;
+	private static String secretkey = "123456789012345678901234567890";
+	private static String secretiv = "123456789012345678901234567890";
+	public static boolean isStateless() {
+		return stateless;
+	}
+	public static void setStateless(boolean stateless) {
+		Spark.stateless = stateless;
+	}
+
+	public static String getSecretkey() {
+		return secretkey;
+	}
+
+	public static void setSecretkey(String secretkey) {
+		Spark.secretkey = secretkey;
+	}
+
+	public static String getSecretiv() {
+		return secretiv;
+	}
+
+	public static void setSecretiv(String secretiv) {
+		Spark.secretiv = secretiv;
+	}
+	    
 }

@@ -29,7 +29,7 @@
         </developers>
 
 	<properties>
-		<jetty.version>9.0.2.v20130417</jetty.version>
+		<jetty.version>8.1.11.v20130520</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -86,6 +86,16 @@
     		<version>2.2.4</version>
     		<scope>test</scope>
 		</dependency>
+        <dependency>
+        	<groupId>net.sourceforge.statelessfilter</groupId>
+        	<artifactId>stateless-cookie-aes</artifactId>
+        	<version>0.8.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+        	<groupId>net.sourceforge.statelessfilter</groupId>
+        	<artifactId>stateless-core</artifactId>
+        	<version>0.8.2-SNAPSHOT</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -113,8 +123,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.6</source>
+					<target>1.6</target>
 					<optimize>true</optimize>
 					<debug>true</debug>
 				</configuration>
