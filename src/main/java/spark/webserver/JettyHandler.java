@@ -19,6 +19,7 @@ package spark.webserver;
 import java.io.IOException;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,6 +37,8 @@ import org.eclipse.jetty.util.log.Logger;
 class JettyHandler extends SessionHandler  {
     
 	private static final Logger LOG = Log.getLogger(JettyHandler.class);
+
+	private static final MultipartConfigElement MULTIPART_CONFIG = new MultipartConfigElement(System.getProperty("java.io.tmpdir"));
 	
     private Filter filter;
     
@@ -51,6 +54,9 @@ class JettyHandler extends SessionHandler  {
             HttpServletResponse response) throws IOException, ServletException {
         LOG.debug("jettyhandler, handle();");
         try {
+        	if(request.getContentType()!=null && request.getContentType().startsWith("multipart/form-data")) {
+        		baseRequest.setAttribute(Request.__MULTIPART_CONFIG_ELEMENT, MULTIPART_CONFIG);
+        	}
             filter.doFilter(request, response, null);
             baseRequest.setHandled(true);
         } catch (NotConsumedException ignore){
